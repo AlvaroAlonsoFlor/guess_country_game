@@ -1,6 +1,7 @@
 const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
 const Request = require('../helpers/create_append.js');
+const generateMap = require('../helpers/map_api.js');
 
 const GuessCountry = function() {
   this.container = document.querySelector('#flag-container');
@@ -46,20 +47,26 @@ GuessCountry.prototype.handleResult = function () {
 
 GuessCountry.prototype.extraInfo = function () {
   const div = createAndAppend('div', 'extra-info', '', this.resultContainer)
+  //info
+  createAndAppend('h2', null, this.country.name, div);
+  createAndAppend('p', null, `Population: ${this.country.population}`, div);
+  createAndAppend('p', null, `Region: ${this.country.subregion}`, div);
+  createAndAppend('p', null, `Capital: ${this.country.capital}`, div);
 
-  createAndAppend('h2', null, this.country.name, div)
-  createAndAppend('p', null, `Population: ${this.country.population}`, div)
-  createAndAppend('p', null, `Region: ${this.country.subregion}`, div)
-  //add some more stuff
-
+  //play again
   createAndAppend('button', 'play-again-button', 'Play again', div);
   this.playAgain();
+
+  //map
+  createAndAppend('div', null, ``, div).setAttribute('id', 'mapid');
+  generateMap(this.country.latlng[0], this.country.latlng[1]);
+
+
 };
 
 GuessCountry.prototype.playAgain = function () {
   const button = document.querySelector('.play-again-button')
   button.addEventListener('click', (e) => {
-    console.log(this.countries);
     const countryFlag = this.getFlag(this.countries);
     this.container.innerHTML = ''
     this.resultContainer.innerHTML = ''

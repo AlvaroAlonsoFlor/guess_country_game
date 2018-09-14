@@ -1,4 +1,10 @@
 .flag {
-  max-width: 400px;
-  max-height: 250px; 
+  max-width: 600px;
+  max-height: 450px;
+  border: 2px solid black;
+}
+
+#mapid {
+  height: 500px;
+  width: 500px;
 }
