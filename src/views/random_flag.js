@@ -12,9 +12,6 @@ RandomFlag.prototype.bindEvents = function () {
     const element = createAndAppend('img', 'flag', '', this.container);
     element.src = countryFlag;
 
-
-    console.log(countryFlag);
-
   });
 };
 
