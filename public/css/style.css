@@ -5,6 +5,8 @@
 }
 
 #mapid {
-  height: 500px;
-  width: 500px;
+  min-height: 250px;
+  min-width: 300px;
+  max-width: 640px;
+  max-height: 360px;
 }

@@ -47,15 +47,17 @@ GuessCountry.prototype.handleResult = function () {
 
 GuessCountry.prototype.extraInfo = function () {
   const div = createAndAppend('div', 'extra-info', '', this.resultContainer)
+  //play again
+  createAndAppend('button', 'play-again-button', 'Play again', div);
+  this.playAgain();
+
   //info
   createAndAppend('h2', null, this.country.name, div);
   createAndAppend('p', null, `Population: ${this.country.population}`, div);
   createAndAppend('p', null, `Region: ${this.country.subregion}`, div);
   createAndAppend('p', null, `Capital: ${this.country.capital}`, div);
 
-  //play again
-  createAndAppend('button', 'play-again-button', 'Play again', div);
-  this.playAgain();
+
 
   //map
   createAndAppend('div', null, ``, div).setAttribute('id', 'mapid');
