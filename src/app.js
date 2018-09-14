@@ -1,13 +1,12 @@
 const Countries = require('./models/countries.js');
-const RandomFlag = require('./views/random_flag.js');
-const Result = require('./views/result.js');
+const GuessCountry = require('./views/guess_country.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const countries = new Countries();
   countries.bindEvents();
 
-  const result = new Result();
-  result.bindEvents();
+  const randomFlag = new GuessCountry();
+  randomFlag.bindEvents();
 
 
 });
