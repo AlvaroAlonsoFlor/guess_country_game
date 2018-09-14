@@ -11,3 +11,9 @@ button:hover {
   background-color: LightSkyBlue;
   color: white;
 }
+
+.play-again-button {
+  width: 30%;
+  font-size: 1.2em;
+  margin: auto;
+}

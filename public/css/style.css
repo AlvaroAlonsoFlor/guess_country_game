@@ -8,6 +8,10 @@ h1 {
   width: 60%;
 }
 
+h3 {
+  text-align: center;
+}
+
 section {
   margin-bottom: 1em;
 }
@@ -46,10 +50,27 @@ input {
   margin: 1%;
   display: grid;
   background-color: #1A535C;
-  grid-template-areas:  "a" 100%
-                        "b e" 1fr 3fr
-                        "c e" 1fr 3fr
-                        "d e" 1fr 3fr;
+  grid-template-areas:
+    "name name name"
+    "population map map"
+    "region map map"
+    "capital map map"
+}
+
+.name {
+  grid-area: name;
+}
+
+.population {
+  grid-area: population;
+}
+
+.region {
+  grid-area: region;
+}
+
+.capital {
+  grid-area: capital;
 }
 
 .extra-info p {
@@ -57,15 +78,20 @@ input {
 }
 
 .extra-info h2 {
-  color: #4ECDC4;
+  color: #FF6B6B;
   font-variant: small-caps;
   font-weight: bold;
   font-size: 2.4em;
 }
 
+#result {
+  display: grid;
+}
+
 #mapid {
   min-height: 250px;
   min-width: 300px;
-  max-width: 640px;
-  max-height: 360px;
+  max-width: 1000px;
+  max-height: 800px;
+  grid-area: map;
 }
