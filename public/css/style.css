@@ -1,7 +1,66 @@
+/* https://coolors.co/app/1a535c-4ecdc4-f7fff7-ff6b6b-ffe66d */
+
+h1 {
+  color: #519E8A;
+  font-variant: small-caps;
+  text-align: center;
+  margin: auto;
+  width: 60%;
+}
+
+section {
+  margin-bottom: 1em;
+}
+
+#input {
+  margin:auto;
+  text-align: center;
+}
+
+body {
+  background: #F7FFF7;
+
+}
+
+label {
+  font-weight: bold;
+  font-size: 1.5em;
+}
+
+input {
+  font-size: 1.2em;
+}
+
 .flag {
   max-width: 600px;
   max-height: 450px;
   border: 2px solid black;
+  margin: auto;
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+.extra-info {
+  padding: 2%;
+  margin: 1%;
+  display: grid;
+  background-color: #1A535C;
+  grid-template-areas:  "a" 100%
+                        "b e" 1fr 3fr
+                        "c e" 1fr 3fr
+                        "d e" 1fr 3fr;
+}
+
+.extra-info p {
+  color: #F7FFF7;
+}
+
+.extra-info h2 {
+  color: #4ECDC4;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 2.4em;
 }
 
 #mapid {

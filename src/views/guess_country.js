@@ -46,10 +46,11 @@ GuessCountry.prototype.handleResult = function () {
 };
 
 GuessCountry.prototype.extraInfo = function () {
-  const div = createAndAppend('div', 'extra-info', '', this.resultContainer)
   //play again
-  createAndAppend('button', 'play-again-button', 'Play again', div);
+  createAndAppend('button', 'play-again-button', 'Play again', this.resultContainer);
   this.playAgain();
+
+  const div = createAndAppend('div', 'extra-info', '', this.resultContainer)
 
   //info
   createAndAppend('h2', null, this.country.name, div);
