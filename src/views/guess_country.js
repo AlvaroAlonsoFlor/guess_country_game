@@ -5,12 +5,14 @@ const Request = require('../helpers/create_append.js');
 const GuessCountry = function() {
   this.container = document.querySelector('#flag-container');
   this.form = document.querySelector('#guess');
-  this.resultContainer = document.querySelector('#result')
+  this.resultContainer = document.querySelector('#result');
+  this.countries = [];
   this.country = [];
 }
 
 GuessCountry.prototype.bindEvents = function () {
   PubSub.subscribe('Countries:all', (e) => {
+    this.countries = e.detail;
     const countryFlag = this.getFlag(e.detail);
     const element = createAndAppend('img', 'flag', '', this.container);
     element.src = countryFlag;
@@ -50,7 +52,21 @@ GuessCountry.prototype.extraInfo = function () {
   createAndAppend('p', null, `Region: ${this.country.subregion}`, div)
   //add some more stuff
 
-  createAndAppend('button', 'button', 'Try again', div);
+  createAndAppend('button', 'play-again-button', 'Play again', div);
+  this.playAgain();
+};
+
+GuessCountry.prototype.playAgain = function () {
+  const button = document.querySelector('.play-again-button')
+  button.addEventListener('click', (e) => {
+    console.log(this.countries);
+    const countryFlag = this.getFlag(this.countries);
+    this.container.innerHTML = ''
+    this.resultContainer.innerHTML = ''
+    const element = createAndAppend('img', 'flag', '', this.container);
+    element.src = countryFlag;
+    this.handleSubmit()
+  })
 };
 
 GuessCountry.prototype.getFlag = function (countries) {
