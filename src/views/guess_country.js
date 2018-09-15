@@ -58,7 +58,7 @@ GuessCountry.prototype.handleResult = function () {
 };
 
 GuessCountry.prototype.handlePartialWin = function () {
-  return this.answer.length > 4 && this.country.name.toLowerCase().includes(this.answer.toLowerCase());
+  return this.answer.length > 5 && this.country.name.toLowerCase().includes(this.answer.toLowerCase());
 };
 
 GuessCountry.prototype.extraInfo = function () {
