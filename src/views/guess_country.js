@@ -2,6 +2,7 @@ const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
 const Request = require('../helpers/create_append.js');
 const generateMap = require('../helpers/map_api.js');
+const CountryView = require('./country_view.js');
 
 const GuessCountry = function() {
   this.container = document.querySelector('#flag-container');
@@ -94,24 +95,27 @@ GuessCountry.prototype.playAgain = function () {
 
 GuessCountry.prototype.handleRegionCountries = function (region) {
   region.addEventListener('click', () => {
-    this.createTable()
+    const table = this.createTable()
     this.countries.forEach((country) => {
       if (country.subregion === this.country.subregion) {
-
-        //render countries
+        const countryView = new CountryView(country, table);
+        countryView.render();
       }
     })
 
-  });
+  }, {once : true});
 };
 
 GuessCountry.prototype.createTable = function () {
-  createAndAppend('h2', 'subregion-title', `Other countries in ${this.country.subregion}`, this.resultContainer)
+  const div = createAndAppend('div', 'subregion-container', '', this.resultContainer);
+  createAndAppend('h2', 'subregion-title', `Other countries in ${this.country.subregion}`, div);
   const table = createAndAppend('table', 'subregion-table', '', this.resultContainer);
   const tr = createAndAppend('tr', 'fields', '', table);
   createAndAppend('th', null, 'Name', tr);
   createAndAppend('th', null, 'Population', tr);
   createAndAppend('th', null, 'Capital', tr);
+
+  return table
 };
 
 
