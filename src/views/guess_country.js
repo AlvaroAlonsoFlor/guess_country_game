@@ -95,7 +95,7 @@ GuessCountry.prototype.handleRegionCountries = function (region) {
   region.addEventListener('click', () => {
     const table = this.createTable()
     this.countries.forEach((country) => {
-      if (country.subregion === this.country.subregion) {
+      if (country.subregion === this.country.subregion && this.country !== country) {
         const countryView = new CountryView(country, table);
         countryView.render();
       }
