@@ -68,8 +68,6 @@ GuessCountry.prototype.extraInfo = function () {
   const region = createAndAppend('p', 'region', `Region: ${this.country.subregion}`, div);
   createAndAppend('p', 'capital', `Capital: ${this.country.capital}`, div);
 
-
-
   //map
   createAndAppend('div', null, ``, div).setAttribute('id', 'mapid');
   generateMap(this.country.latlng[0], this.country.latlng[1]);
