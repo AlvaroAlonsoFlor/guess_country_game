@@ -59,6 +59,14 @@ input {
 
 .name {
   grid-area: name;
+  padding: 1%;
+  background: #FFE66D;
+}
+
+.population, .region, .capital {
+  border: 2px solid #4ECDC4;
+  padding: 5%;
+  width: 80%;
 }
 
 .population {
@@ -94,4 +102,5 @@ input {
   max-width: 1000px;
   max-height: 800px;
   grid-area: map;
+  border: 1px solid #FFE66D;
 }
