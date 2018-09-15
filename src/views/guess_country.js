@@ -47,12 +47,18 @@ GuessCountry.prototype.handleResult = function () {
   if (this.answer.toLowerCase() === this.country.name.toLowerCase()) {
     createAndAppend('h3', null, 'Very well done! Here you have some extra info', this.resultContainer)
 
+  } else if (this.handlePartialWin()) {
+    createAndAppend('h3', null,`You answer ${this.answer} and the country was ${this.country.name}, close enough for a win!` , this.resultContainer)
   } else {
     createAndAppend('h3', null, `${this.answer} is not correct, it was ${this.country.name}, here you have some more info`, this.resultContainer)
   }
 
   this.extraInfo()
 
+};
+
+GuessCountry.prototype.handlePartialWin = function () {
+  return this.answer.length > 4 && this.country.name.toLowerCase().includes(this.answer.toLowerCase());
 };
 
 GuessCountry.prototype.extraInfo = function () {
