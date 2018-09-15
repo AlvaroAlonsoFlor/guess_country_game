@@ -22,6 +22,15 @@ GuessCountry.prototype.bindEvents = function () {
   });
 };
 
+GuessCountry.prototype.getFlag = function (countries) {
+  this.country = countries[this.randomInt(countries.length)];
+  return this.country.flag
+};
+
+GuessCountry.prototype.randomInt = function(max) {
+  return Math.floor(Math.random() * Math.floor(max));
+}
+
 GuessCountry.prototype.handleSubmit = function () {
   this.form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -55,7 +64,7 @@ GuessCountry.prototype.extraInfo = function () {
   //info
   createAndAppend('h2', 'name', this.country.name, div);
   createAndAppend('p', 'population', `Population: ${this.country.population}`, div);
-  createAndAppend('p', 'region', `Region: ${this.country.subregion}`, div);
+  const region = createAndAppend('p', 'region', `Region: ${this.country.subregion}`, div);
   createAndAppend('p', 'capital', `Capital: ${this.country.capital}`, div);
 
 
@@ -63,6 +72,10 @@ GuessCountry.prototype.extraInfo = function () {
   //map
   createAndAppend('div', null, ``, div).setAttribute('id', 'mapid');
   generateMap(this.country.latlng[0], this.country.latlng[1]);
+
+  //listener to access regions
+  this.handleRegionCountries(region);
+
 
 
 };
@@ -79,13 +92,16 @@ GuessCountry.prototype.playAgain = function () {
   })
 };
 
-GuessCountry.prototype.getFlag = function (countries) {
-  this.country = countries[this.randomInt(countries.length)];
-  return this.country.flag
+GuessCountry.prototype.handleRegionCountries = function (region) {
+  region.addEventListener('click', () => {
+    console.log('clicked');
+  });
 };
 
-GuessCountry.prototype.randomInt = function(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
+
+
+
+
+
 
 module.exports = GuessCountry;

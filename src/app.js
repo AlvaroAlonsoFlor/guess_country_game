@@ -8,6 +8,4 @@ document.addEventListener('DOMContentLoaded', () => {
   const randomFlag = new GuessCountry();
   randomFlag.bindEvents();
 
-
-
 });
