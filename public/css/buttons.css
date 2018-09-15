@@ -5,6 +5,7 @@ button {
   padding: 5px;
   font-weight: bold;
   font-variant: small-caps;
+  border-radius: 0.3em;
 }
 
 button:hover {

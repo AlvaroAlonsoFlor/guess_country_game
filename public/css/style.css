@@ -1,15 +1,30 @@
 /* https://coolors.co/app/1a535c-4ecdc4-f7fff7-ff6b6b-ffe66d */
 
+h1, .subregion-title {
+    background-color: #3C91E6;
+    font-variant: small-caps;
+    text-align: center;
+    margin: auto;
+    color: white;
+    padding: 2%;
+}
+
 h1 {
-  color: #519E8A;
-  font-variant: small-caps;
-  text-align: center;
-  margin: auto;
-  width: 60%;
+  min-width: 55%;
+  max-width: 80%;
+  border-radius: 0.4em;
+}
+
+.subregion-title {
+  font-size: 1.8em;
 }
 
 h3 {
   text-align: center;
+}
+
+p {
+  font-size: 1em;
 }
 
 section {
@@ -23,12 +38,14 @@ section {
 
 body {
   background: #F7FFF7;
+  font-family: Helvetica, sans-serif;
 
 }
 
 label {
   font-weight: bold;
   font-size: 1.5em;
+  font-variant: small-caps;
 }
 
 input {
@@ -36,6 +53,8 @@ input {
 }
 
 .flag {
+  min-width: 250px;
+  min-height: 150px;
   max-width: 600px;
   max-height: 450px;
   border: 2px solid black;
@@ -50,6 +69,7 @@ input {
   margin: 1%;
   display: grid;
   background-color: #1A535C;
+  border-radius: 0.5em;
   grid-template-areas:
     "name name name"
     "population map map"
@@ -57,16 +77,33 @@ input {
     "capital map map"
 }
 
+/* extra info */
+
+.extra-info p {
+  color: #F7FFF7;
+}
+
+.extra-info h2 {
+  color: #F7FFF7;
+  font-variant: small-caps;
+  font-weight: bold;
+  font-size: 2.4em;
+}
+
 .name {
   grid-area: name;
+  width: auto;
   padding: 1%;
-  background: #FFE66D;
+  background: rgba(78, 205, 196, 0.5);
+  border-radius: 0.3em;
 }
 
 .population, .region, .capital {
   border: 2px solid #4ECDC4;
   padding: 5%;
   width: 80%;
+  background-color: rgba(5, 5, 5, 0.6);
+  border-radius: 0.3em;
 }
 
 .population {
@@ -77,20 +114,16 @@ input {
   grid-area: region;
 }
 
+.region:hover {
+  cursor: pointer;
+  background-color: #4ECDC4;
+}
+
 .capital {
   grid-area: capital;
 }
 
-.extra-info p {
-  color: #F7FFF7;
-}
 
-.extra-info h2 {
-  color: #FF6B6B;
-  font-variant: small-caps;
-  font-weight: bold;
-  font-size: 2.4em;
-}
 
 #result {
   display: grid;

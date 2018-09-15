@@ -1,9 +1,21 @@
 table {
-  align-content: center;
-  border: 2px solid black;
+  /* align-content: center; */
+  background-color: #3C91E6;
+  /* width: auto; */
+}
+
+.region-country-row:hover {
+  background-color: rgba(78, 205, 196, 0.7)
+} 
+
+th {
+  font-size: 1.4em;
+  color: white;
+  padding: 1%;
 }
 
 td {
-  border: 1px solid black;
+  /* border: 1px solid black; */
   text-align: center;
+  padding: 2%;
 }
