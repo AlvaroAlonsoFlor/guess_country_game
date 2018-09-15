@@ -94,8 +94,24 @@ GuessCountry.prototype.playAgain = function () {
 
 GuessCountry.prototype.handleRegionCountries = function (region) {
   region.addEventListener('click', () => {
-    console.log('clicked');
+    this.createTable()
+    this.countries.forEach((country) => {
+      if (country.subregion === this.country.subregion) {
+
+        //render countries
+      }
+    })
+
   });
+};
+
+GuessCountry.prototype.createTable = function () {
+  createAndAppend('h2', 'subregion-title', `Other countries in ${this.country.subregion}`, this.resultContainer)
+  const table = createAndAppend('table', 'subregion-table', '', this.resultContainer);
+  const tr = createAndAppend('tr', 'fields', '', table);
+  createAndAppend('th', null, 'Name', tr);
+  createAndAppend('th', null, 'Population', tr);
+  createAndAppend('th', null, 'Capital', tr);
 };
 
 
