@@ -122,10 +122,4 @@ GuessCountry.prototype.createTable = function () {
   return table
 };
 
-
-
-
-
-
-
 module.exports = GuessCountry;

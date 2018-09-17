@@ -1,4 +1,8 @@
-/* https://coolors.co/app/1a535c-4ecdc4-f7fff7-ff6b6b-ffe66d */
+/* https://coolors.co/050505-1a535c-4ecdc4-3c91e6-f7fff7 */
+
+body {
+  width: 100%;
+}
 
 h1, .subregion-title {
     background-color: #3C91E6;
@@ -66,7 +70,8 @@ input {
 
 .extra-info {
   padding: 2%;
-  margin: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
   display: grid;
   background-color: #1A535C;
   border-radius: 0.5em;
