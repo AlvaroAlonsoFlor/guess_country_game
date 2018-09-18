@@ -9,7 +9,6 @@ const Countries = function() {
 
 Countries.prototype.bindEvents = function () {
   this.getData();
-  this.getRandomCountry();
 
 };
 
@@ -18,6 +17,7 @@ Countries.prototype.getData = function () {
     .then((data) => {
       this.countries = data;
       PubSub.publish('Countries:all', this.countries);
+      this.getRandomCountry()
     })
 
     .catch((message) => {
@@ -25,8 +25,8 @@ Countries.prototype.getData = function () {
     });
 };
 
-GuessCountry.prototype.getRandomCountry = function (countries) {
-  this.country = countries[this.randomInt(countries.length)];
+Countries.prototype.getRandomCountry = function () {
+  this.country = this.countries[this.randomInt(this.countries.length)];
   PubSub.publish('Countries:random', this.country);
 };
 

@@ -1,6 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
-const Request = require('../helpers/create_append.js');
 const generateMap = require('../helpers/map_api.js');
 const CountryView = require('./country_view.js');
 
@@ -22,15 +21,6 @@ GuessCountry.prototype.bindEvents = function () {
 
   });
 };
-
-GuessCountry.prototype.getFlag = function (countries) {
-  this.country = countries[this.randomInt(countries.length)];
-  return this.country.flag
-};
-
-GuessCountry.prototype.randomInt = function(max) {
-  return Math.floor(Math.random() * Math.floor(max));
-}
 
 GuessCountry.prototype.handleSubmit = function () {
   this.form.addEventListener('submit', (e) => {
