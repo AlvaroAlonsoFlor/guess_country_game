@@ -34,6 +34,10 @@ Countries.prototype.randomInt = function(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
 
+Countries.prototype.newCountry = function () {
+  this.getRandomCountry();
+};
+
 
 
 
