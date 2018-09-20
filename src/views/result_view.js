@@ -5,7 +5,6 @@ const ExtraInfoView = require('./extra_info_view.js');
 
 const ResultView = function (countries) {
   this.container = document.querySelector('#result');
-  this.flagContainer = document.querySelector('#flag-container');
   this.country = [];
   this.answer = [];
   this.countriesModel = countries
@@ -43,12 +42,12 @@ ResultView.prototype.handlePartialWin = function () {
 };
 
 ResultView.prototype.playAgain = function () {
-  const playAgain = new PlayAgainView(this.countriesModel)
+  const playAgain = new PlayAgainView(this.countriesModel, this.container)
   playAgain.bindEvents();
 };
 
 ResultView.prototype.renderInfo = function () {
-  const extraInfo = new ExtraInfoView(this.country)
+  const extraInfo = new ExtraInfoView(this.country, this.countriesModel.countries)
   extraInfo.render()
 };
 

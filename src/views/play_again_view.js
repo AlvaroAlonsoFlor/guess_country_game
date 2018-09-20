@@ -1,10 +1,10 @@
 const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
 
-const PlayAgainView = function (countries) {
-  this.container = document.querySelector('#result')
+const PlayAgainView = function (countries, container) {
+  this.container = container;
   this.flagContainer = document.querySelector('#flag-container');
-  this.countries = countries
+  this.countries = countries;
 };
 
 PlayAgainView.prototype.bindEvents = function () {
@@ -21,7 +21,6 @@ PlayAgainView.prototype.handleNewGame = function () {
   button.addEventListener('click', (e) => {
     this.container.innerHTML = ''
     this.flagContainer.innerHTML = ''
-    console.log('countries playagain', this.countries);
     this.countries.bindEvents();
   })
 };
