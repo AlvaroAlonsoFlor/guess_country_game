@@ -1,14 +1,17 @@
 const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
+const PlayAgainView = require('./play_again_view.js');
 
-const ResultView = function () {
+const ResultView = function (countries) {
   this.container = document.querySelector('#result');
   this.flagContainer = document.querySelector('#flag-container');
   this.country = [];
   this.answer = [];
+  this.countriesModel = countries
 };
 
 ResultView.prototype.bindEvents = function () {
+  
   PubSub.subscribe('Countries:random', (e) => {
     this.country = e.detail;
   });
@@ -17,6 +20,11 @@ ResultView.prototype.bindEvents = function () {
     this.handleResult();
   });
 
+};
+
+ResultView.prototype.playAgain = function () {
+  const playAgain = new PlayAgainView(this.countriesModel)
+  playAgain.bindEvents();
 };
 
 ResultView.prototype.handleResult = function () {
@@ -30,6 +38,8 @@ ResultView.prototype.handleResult = function () {
   } else {
     createAndAppend('h3', null, `${this.answer} is not correct, it was ${this.country.name}, here you have some more info`, this.container)
   }
+
+  this.playAgain();
 };
 
 ResultView.prototype.handlePartialWin = function () {

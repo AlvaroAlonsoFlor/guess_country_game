@@ -8,9 +8,8 @@ const Countries = function() {
 };
 
 Countries.prototype.bindEvents = function () {
-  console.log('countries', this.countries);
   if (this.countries) {
-    console.log('No request');
+    // console.log('No request');
     this.getRandomCountry();
   } else {
     this.getData();
@@ -23,7 +22,7 @@ Countries.prototype.getData = function () {
   this.request.get()
     .then((data) => {
       this.countries = data;
-      PubSub.publish('Countries:all', this.countries);
+      // PubSub.publish('Countries:all', this.countries);
       this.getRandomCountry()
     })
 
@@ -34,6 +33,7 @@ Countries.prototype.getData = function () {
 
 Countries.prototype.getRandomCountry = function () {
   this.country = this.countries[this.randomInt(this.countries.length)];
+  PubSub.publish('Countries:all', this.countries);
   PubSub.publish('Countries:random', this.country);
 };
 

@@ -14,15 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const answer = new InputView();
   answer.bindEvents();
 
-  const result = new ResultView();
+  const result = new ResultView(countries);
   result.bindEvents();
-
-  const playAgain = new PlayAgainView(countries)
-  console.log('playAgain');
-  playAgain.bindEvents();
-
-
-
 
 
 });

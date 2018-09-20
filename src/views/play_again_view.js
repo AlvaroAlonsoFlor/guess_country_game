@@ -21,7 +21,7 @@ PlayAgainView.prototype.handleNewGame = function () {
   button.addEventListener('click', (e) => {
     this.container.innerHTML = ''
     this.flagContainer.innerHTML = ''
-
+    console.log('countries playagain', this.countries);
     this.countries.bindEvents();
   })
 };
