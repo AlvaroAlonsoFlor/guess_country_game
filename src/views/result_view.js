@@ -1,6 +1,5 @@
 const PubSub = require('../helpers/pub_sub.js');
 const createAndAppend = require('../helpers/create_append.js');
-const Countries = require('../models/countries.js');
 
 const ResultView = function () {
   this.container = document.querySelector('#result');
@@ -31,28 +30,10 @@ ResultView.prototype.handleResult = function () {
   } else {
     createAndAppend('h3', null, `${this.answer} is not correct, it was ${this.country.name}, here you have some more info`, this.container)
   }
-
-  this.playAgain()
 };
 
 ResultView.prototype.handlePartialWin = function () {
   return this.answer.length > 5 && this.country.name.toLowerCase().includes(this.answer.toLowerCase());
-};
-
-ResultView.prototype.playAgain = function () {
-  createAndAppend('button', 'play-again-button', 'Play again', this.container);
-  const button = document.querySelector('.play-again-button')
-  this.handleNewGame()
-};
-
-ResultView.prototype.handleNewGame = function () {
-  const button = document.querySelector('.play-again-button')
-  button.addEventListener('click', (e) => {
-    this.container.innerHTML = ''
-    this.flagContainer.innerHTML = ''
-    const newCountry = new Countries();
-    newCountry.bindEvents();
-  })
 };
 
 module.exports = ResultView;

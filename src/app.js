@@ -2,6 +2,7 @@ const Countries = require('./models/countries.js');
 const RandomFlagView = require('./views/random_flag_view.js');
 const InputView = require('./views/input_view.js');
 const ResultView = require('./views/result_view.js');
+const PlayAgainView = require('./views/play_again_view.js');
 
 document.addEventListener('DOMContentLoaded', () => {
   const countries = new Countries();
@@ -15,6 +16,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const result = new ResultView();
   result.bindEvents();
+
+  const playAgain = new PlayAgainView(countries)
+  console.log('playAgain');
+  playAgain.bindEvents();
 
 
 

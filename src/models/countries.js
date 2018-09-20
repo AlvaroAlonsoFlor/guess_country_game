@@ -2,13 +2,20 @@ const PubSub = require('../helpers/pub_sub.js');
 const Request = require('../helpers/request.js');
 
 const Countries = function() {
-  this.countries = []
+  this.countries = null
   this.country = []
   this.request = new Request('https://restcountries.eu/rest/v2/all');
 };
 
 Countries.prototype.bindEvents = function () {
-  this.getData();
+  console.log('countries', this.countries);
+  if (this.countries) {
+    console.log('No request');
+    this.getRandomCountry();
+  } else {
+    this.getData();
+  }
+
 
 };
 
@@ -33,10 +40,6 @@ Countries.prototype.getRandomCountry = function () {
 Countries.prototype.randomInt = function(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-
-Countries.prototype.newCountry = function () {
-  this.getRandomCountry();
-};
 
 
 
